@@ -9,6 +9,13 @@
 	<name>springfront Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		<!-- Link springback project -->
+		<dependency>
+			<groupId>com.fashionagariya</groupId>
+			<artifactId>springback</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
 			<groupId>javax</groupId>

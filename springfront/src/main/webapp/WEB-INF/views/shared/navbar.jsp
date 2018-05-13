@@ -11,8 +11,8 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li id="about" class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
-				<li id="listProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/listProducts">Products</a></li>
 				<li id="contact" class="nav-item"><a class="nav-link" href="${contextRoot}/contact">Contact</a></li>
+				<li id="listProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/show/all/products">Products</a></li>				
 			</ul>
 		</div>
 	</div>
