@@ -21,22 +21,16 @@
 
 <title>Fashionagariya - ${title}</title>
 
-<script>
-	window.menu = '${title}';
-	window.contextRoot = '${contextRoot}';
-</script>
-
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Theme CSS -->
 <link href="${css}/bootstrap-theme.min.css" rel="stylesheet">
 
-<!-- DataTable Bootstrap CSS -->
-<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
-
 <!-- FontAwesomeCDN -->
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -45,37 +39,33 @@
 
 <body>
 	<div class="wrapper">
-
 		<!-- Navigation -->
-		<%@include file="./shared/navbar.jsp"%>
-
-		<!-- Page Content -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="${contextRoot}/home">Fashionagariya</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarResponsive" aria-controls="navbarResponsive"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</nav>
+		
 		<div class="content">
-			<!-- Loading Home Content -->
-			<c:if test="${userClickHome == true }">
-				<%@include file="home.jsp"%>
-			</c:if>
-
-			<!-- Loading About Content -->
-			<c:if test="${userClickAbout == true }">
-				<%@include file="about.jsp"%>
-			</c:if>
-
-			<!-- Loading Contact Content -->
-			<c:if test="${userClickContact == true }">
-				<%@include file="contact.jsp"%>
-			</c:if>
-			
-			<!-- Loading Products Content -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
-				<%@include file="listProducts.jsp"%>
-			</c:if>
-			
-			<!-- Loading Single Product Content -->
-			<c:if test="${userClickShowProduct == true }">
-				<%@include file="singleProduct.jsp"%>
-			</c:if>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="jumbotron">
+							<h1>${errorTitle}</h1>
+							<hr/>
+							<blockquote style="word-wrap:break-word">${errorDescription}</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
+
 
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
@@ -83,9 +73,7 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
-		<!-- DataTable JavaScript -->
-		<script src="${js}/jquery.dataTables.js"></script>
-		<script src="${js}/dataTables.bootstrap4.js"></script>
+
 		<!-- Application JavaScript -->
 		<script src="${js}/myapp.js"></script>
 
