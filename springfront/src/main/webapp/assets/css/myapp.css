@@ -29,6 +29,10 @@ body {
 	height: 60px;
 }
 
+.navbar-brand {
+	font-family: cursive;
+}
+
 @media (min-width: 992px) {
   body {
     padding-top: 56px;

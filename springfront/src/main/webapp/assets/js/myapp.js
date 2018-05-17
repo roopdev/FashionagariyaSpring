@@ -8,7 +8,10 @@ $(function() {
 		break;
 	case 'All Products':
 		$('#listProducts').addClass('active');
-		break
+		break;
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+		break;
 	default:
 		if(menu == "Home") break;
 		$('#listProducts').addClass('active');
@@ -78,6 +81,17 @@ $(function() {
 				}
 			]
 		});
+	}
+	
+	
+	// Alert function
+	
+	var $alert = $(".alert");
+	
+	if($alert.length) {
+		setTimeout(function() {
+			$alert.fadeOut('slow')
+		} , 3000)
 	}
 	
 });
