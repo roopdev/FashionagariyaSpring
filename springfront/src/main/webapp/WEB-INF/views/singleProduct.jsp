@@ -26,23 +26,31 @@
 				Price: <strong>&#8377; ${product.unitPrice} /-</strong>
 			</h4>
 			<hr />
+			
+			<security:authorize access="hasAuthority('USER')">
+				<c:choose>
+					<c:when test="${product.quantity < 1 }">
+						<h6>
+							Qty. Available: <span style="color: red">Out Of Stock</span>
+						</h6>
+					</c:when>
+					<c:otherwise>
+						<h6>Qty. Available: ${product.quantity}</h6>
+						<a href="${contextRoot}/cart/add/${product.id}/product"
+							class="btn btn-outline-success"> <i class="fa fa-cart-plus"
+							aria-hidden="true"></i> Add to cart
+						</a>
+					</c:otherwise>
+				</c:choose>
+			</security:authorize>
 
-			<c:choose>
-				<c:when test="${product.quantity < 1 }">
-					<h6>
-						Qty. Available: <span style="color: red">Out Of Stock</span>
-					</h6>
-				</c:when>
-				<c:otherwise>
-					<h6>Qty. Available: ${product.quantity}</h6>
-					<a href="${contextRoot}/cart/add/${product.id}/product"
-						class="btn btn-outline-success"> <i class="fa fa-cart-plus"
-						aria-hidden="true"></i> Add to cart
-					</a>
-				</c:otherwise>
-			</c:choose>
-
-
+			<security:authorize access="hasAuthority('ADMIN')">
+				<h6>Qty. Available: ${product.quantity}</h6>
+				<a href="${contextRoot}/manage/${product.id}/product"
+					class="btn btn-outline-warning"> <i class="fa fa-pencil"
+							aria-hidden="true"></i> Edit
+				</a>
+			</security:authorize>
 		</div>
 	</div>
 </div>

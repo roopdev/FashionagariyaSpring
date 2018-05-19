@@ -19,6 +19,17 @@ $(function() {
 		break;
 	}
 	
+	// for handling CSRF token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if((token!=undefined && header !=undefined) && (token.length > 0 && header.length > 0)) {		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {			
+			xhr.setRequestHeader(header,token);			
+		});				
+	}
+	
 	
 	// DataTable 
 	
@@ -68,13 +79,18 @@ $(function() {
 					 var str = '';
 					 str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a> &#160;';
 					 
-					 if(row.quantity < 1) {
-						 str += '<a href="javascript: void(0)" class="btn btn-sm btn-success disabled"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>';
+					 if(userRole == 'ADMIN') {
+						 str += '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
 					 }
 					 else {
+						 
+						 if(row.quantity < 1) {
+							 str += '<a href="javascript: void(0)" class="btn btn-sm btn-success disabled"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>';
+						 }
+						 else {
 						 str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product" class="btn btn-sm btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>';
-					 }
-					 
+						 }
+					 } 
 					 
 					 return str;
 				 }
@@ -211,6 +227,7 @@ $(function() {
 		element.parents(".validate").addClass("had-feedback");
 	}
 	
+	// for category form
 	var $categoryForm = $('#categoryForm');
 	
 	if($categoryForm.length) {
@@ -233,6 +250,36 @@ $(function() {
 				description: {
 					required: 'Please provide category description.',
 					minlength: 'Provide minimum 5 characters'
+				}
+			},
+			errorElement: "em",
+			errorPlacement: function(error, element) {
+				errorPlacement(error, element);
+			}
+		});
+	}
+	
+	// for login form
+var $loginForm = $('#loginForm');
+	
+	if($loginForm.length) {
+		$loginForm.validate({
+			rules: {
+				username: {
+					required: true,
+					email: true
+				},
+				password: {
+					required: true,
+				}
+			},
+			messages: {
+				username: {
+					required: 'Please provide email address.',
+					email: 'Provide valid email id'
+				},
+				password: {
+					required: 'Please provide password.',
 				}
 			},
 			errorElement: "em",
