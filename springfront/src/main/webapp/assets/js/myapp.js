@@ -12,6 +12,9 @@ $(function() {
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
+	case 'My Cart':
+		$('#userCart').addClass('active');
+		break;
 	default:
 		if(menu == "Home") break;
 		$('#listProducts').addClass('active');
@@ -78,13 +81,13 @@ $(function() {
 				 mRender: function(data,type,row){
 					 var str = '';
 					 str += '<a href="'+window.contextRoot+ '/show/'+data+'/product" class="btn btn-sm btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a> &#160;';
-					 
+
 					 if(userRole == 'ADMIN') {
 						 str += '<a href="'+window.contextRoot+ '/manage/'+data+'/product" class="btn btn-sm btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
 					 }
 					 else {
 						 
-						 if(row.quantity < 1) {
+						 if(row.quantity < 1 || userRole == 'SUPPLIER' ) {
 							 str += '<a href="javascript: void(0)" class="btn btn-sm btn-success disabled"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>';
 						 }
 						 else {
@@ -288,5 +291,34 @@ var $loginForm = $('#loginForm');
 			}
 		});
 	}
+	
+	// Cart refresh button
+	$('button[name="refreshCart"]').click(function() {
+		var cartLineId = $(this).attr('value');
+		var countElement = $('#count_' + cartLineId);
+		
+		var originalCount = countElement.attr('value');
+		var currentCount = countElement.val();
+		
+		if(currentCount !== originalCount) {
+			console.log("current count: " + currentCount);
+			console.log("original count: " + originalCount);
+			
+			if(currentCount < 1  || currentCount > 3) {
+				countElement.val(originalCount);
+				bootbox.alert({
+					size: 'medium',
+					title: 'Error',
+					message: 'Product should be minimum 1 and maximum 3'
+				});
+			}
+			else {
+				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+				console.log(currentCount);
+				window.location.href = updateUrl;
+			}
+		}
+	});
+	
 	
 });

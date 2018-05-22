@@ -28,13 +28,13 @@
 			  </security:authorize>
 			  
 			  <security:authorize access="isAuthenticated()">
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown" id="userCart">
 			        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          ${userModel.fullName}
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 			         <security:authorize access="hasAuthority('USER')">
-			          <a class="dropdown-item" href="${contextRoot}/cart">
+			          <a class="dropdown-item" href="${contextRoot}/cart/show">
 			          	<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 			          	<span class="badge badge-info">${userModel.cart.cartLines}</span>
 			          	- &#8377; ${userModel.cart.grandTotal}

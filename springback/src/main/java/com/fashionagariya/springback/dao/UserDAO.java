@@ -3,7 +3,6 @@ package com.fashionagariya.springback.dao;
 import java.util.List;
 
 import com.fashionagariya.springback.dto.Address;
-import com.fashionagariya.springback.dto.Cart;
 import com.fashionagariya.springback.dto.User;
 
 public interface UserDAO {
@@ -16,7 +15,6 @@ public interface UserDAO {
 	Address getBillingAddress(User user);
 	List<Address> listShippingAddress(User user);
 	
-	// Methods for Cart
-	boolean updateCart(Cart cart);
+
 
 }

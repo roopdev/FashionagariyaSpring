@@ -38,6 +38,7 @@
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- FontAwesomeCDN -->
+<%-- <link href="${css}/font-awesome.min.css" rel="stylesheet"> --%>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
@@ -81,6 +82,11 @@
 			<!-- Loading Manage Products Content -->
 			<c:if test="${userClickManageProducts == true }">
 				<%@include file="manageProducts.jsp"%>
+			</c:if>
+			
+			<!-- Loading User Cart Content -->
+			<c:if test="${userClickShowCart == true }">
+				<%@include file="cart.jsp"%>
 			</c:if>
 		</div>
 
