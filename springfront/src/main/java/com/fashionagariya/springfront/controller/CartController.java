@@ -1,5 +1,7 @@
 package com.fashionagariya.springfront.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,8 @@ import com.fashionagariya.springfront.service.CartService;
 @Controller
 @RequestMapping("/cart")
 public class CartController {
+	
+	private final static Logger logger = LoggerFactory.getLogger(CartController.class);
 	
 	@Autowired
 	private CartService cartService;
@@ -32,6 +36,9 @@ public class CartController {
 			case "deleted":
 				mv.addObject("message", "Success: Cart removed!!");
 				break;
+			case "modified":
+				mv.addObject("message", "Update: Products in cart modified!!");
+				break;
 			case "maximum":
 				mv.addObject("message", "Failure: Product count maximum!!");
 				break;
@@ -41,6 +48,12 @@ public class CartController {
 			case "error":
 				mv.addObject("message", "Failure: Update failed!!");
 				break;
+			}
+		}
+		else {
+			String response = cartService.validateCartLine();
+			if(response.equals("result=modified")) {
+				mv.addObject("message", "Update: Products in cart modified!!");
 			}
 		}
 		mv.addObject("title", "My Cart");
@@ -66,6 +79,17 @@ public class CartController {
 	public String addCart(@PathVariable int productId) {
 		String response = cartService.addCartLine(productId);
 		return "redirect:/cart/show?"+response;
+	}
+	
+	@RequestMapping("/validate")
+	public String validateCart() {
+		String response = cartService.validateCartLine();
+		if(!response.equals("result=success")) {
+			return "redirect:/cart/show?"+response;
+		}
+		else {
+			return "redirect:/cart/checkout";
+		}
 	}
 
 

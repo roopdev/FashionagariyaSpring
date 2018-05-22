@@ -39,6 +39,7 @@
 			          	<span class="badge badge-info">${userModel.cart.cartLines}</span>
 			          	- &#8377; ${userModel.cart.grandTotal}
 			          </a>
+			          <a class="dropdown-item" href="javascript:void(0)">My orders</a>
 			         </security:authorize>
 			          <a class="dropdown-item" href="javascript:void(0)">Profile</a>
 			          <div class="dropdown-divider"></div>

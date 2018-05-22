@@ -114,4 +114,58 @@ public class CartService {
 		return response;
 	}
 
+	public String validateCartLine() {
+		Cart cart = this.getCart();
+		List<CartLine> cartLines = cartLineDAO.list(cart.getId());
+		double grandTotal = 0.0;
+		int lineCount = 0;
+		String response = "result=success";
+		boolean changed = false;
+		Product product = null;
+		for(CartLine cartLine : cartLines) {
+			product = cartLine.getProduct();
+			changed = false;
+			// check product is_active, if not cartline available is false
+			if((!product.isActive() && product.getQuantity() == 0) && cartLine.isAvailable()) {
+				cartLine.setAvailable(false);
+				changed = true;
+			}
+			// check cartline is_available & product is_active with quantity available
+			if((product.isActive() && product.getQuantity() > 0) && !(cartLine.isAvailable())) {
+				cartLine.setAvailable(true);
+				changed = true;
+			}
+			// check product buying price changed
+			if(cartLine.getBuyingPrice() != product.getUnitPrice()) {
+				cartLine.setBuyingPrice(product.getUnitPrice());
+				cartLine.setTotal(cartLine.getProductCount() * product.getUnitPrice());
+				changed = true;
+			}
+			// check product quantity available
+			if(cartLine.getProductCount() > product.getQuantity()) {
+				cartLine.setProductCount(product.getQuantity());
+				cartLine.setTotal(cartLine.getProductCount() * product.getUnitPrice());
+				changed = true;
+			}
+			// check changed status
+			if(changed) {
+				// update cartline
+				cartLineDAO.update(cartLine);
+				response = "result=modified";
+			}
+			
+			grandTotal += cartLine.getTotal();
+			lineCount++;
+		}
+		
+		cart.setCartLines(lineCount++);
+		cart.setGrandTotal(grandTotal);
+		cartLineDAO.updateCart(cart);
+		
+		return response;
+		
+	}
+
 }
+	
+	
