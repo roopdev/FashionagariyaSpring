@@ -67,12 +67,43 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<Address> listShippingAddress(User user) {
-		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
+		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping ORDER BY id DESC";
 		
 		try {
 			return sessionFactory.getCurrentSession().createQuery(selectQuery, Address.class).setParameter("user", user).setParameter("shipping", true).getResultList();
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public Address getAddress(int addressId) {
+		try {
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+		try {
+			sessionFactory.getCurrentSession().update(address);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public User getUser(int id) {
+		try {
+			return sessionFactory.getCurrentSession().get(User.class, id);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 			return null;
 		}
 	}

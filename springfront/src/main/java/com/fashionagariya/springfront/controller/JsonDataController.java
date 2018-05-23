@@ -35,5 +35,18 @@ public class JsonDataController {
 	public List<Product> getProductsByCategory(@PathVariable("id") int categoryId) {
 		return productDAO.listActiveProductsByCategory(categoryId);
 	}
+	
+
+	@RequestMapping("/mv/products")
+	@ResponseBody
+	public List<Product> getMostViewedProducts() {		
+		return productDAO.getProductsByParam("views", 5);				
+	}
+		
+	@RequestMapping("/mp/products")
+	@ResponseBody
+	public List<Product> getMostPurchasedProducts() {		
+		return productDAO.getProductsByParam("purchases", 5);				
+	}
 
 }

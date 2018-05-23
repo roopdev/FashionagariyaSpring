@@ -15,7 +15,7 @@ import com.fashionagariya.springfront.service.CartService;
 @RequestMapping("/cart")
 public class CartController {
 	
-	private final static Logger logger = LoggerFactory.getLogger(CartController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 	
 	@Autowired
 	private CartService cartService;
@@ -56,6 +56,8 @@ public class CartController {
 				mv.addObject("message", "Update: Products in cart modified!!");
 			}
 		}
+		logger.info("Inside CartController index method - INFO");
+		logger.debug("Inside CartController index method - DEBUG");
 		mv.addObject("title", "My Cart");
 		mv.addObject("userClickShowCart", true);
 		mv.addObject("cartLines", cartService.getCartLines());

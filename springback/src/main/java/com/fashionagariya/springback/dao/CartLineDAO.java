@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fashionagariya.springback.dto.Cart;
 import com.fashionagariya.springback.dto.CartLine;
+import com.fashionagariya.springback.dto.OrderDetail;
 
 public interface CartLineDAO {
 	
@@ -18,5 +19,8 @@ public interface CartLineDAO {
 	
 	// Methods for Cart
 	boolean updateCart(Cart cart);
+	
+	// adding order details
+	boolean addOrderDetails(OrderDetail orderDetail);
 
 }

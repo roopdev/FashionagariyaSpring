@@ -16,8 +16,8 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="Fashionagariya website Spring MVC Hibernate ">
+<meta name="author" content="roop">
 <meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
 
@@ -47,6 +47,7 @@
 </head>
 
 <body>
+<!-- 	<div class="se-pre-con"></div> -->
 	<div class="wrapper">
 
 		<!-- Navigation -->

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fashionagariya.springback.dao.CartLineDAO;
 import com.fashionagariya.springback.dto.Cart;
 import com.fashionagariya.springback.dto.CartLine;
+import com.fashionagariya.springback.dto.OrderDetail;
 
 @Repository("cartLineDAO")
 @Transactional
@@ -64,7 +65,7 @@ public class CartLineDAOImpl implements CartLineDAO {
 
 	@Override
 	public List<CartLine> listAvailable(int cartId) {
-		String query = "FROM CartLine WHERE cartId = :cardId AND available = :available";
+		String query = "FROM CartLine WHERE cartId = :cartId AND available = :available";
 		return sessionFactory.getCurrentSession().createQuery(query, CartLine.class).setParameter("cartId", cartId).setParameter("available", true).getResultList();
 	}
 
@@ -87,6 +88,16 @@ public class CartLineDAOImpl implements CartLineDAO {
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean addOrderDetails(OrderDetail orderDetail) {
+		try {
+			sessionFactory.getCurrentSession().persist(orderDetail);
+			return true;
+		} catch (Exception e) {
 			return false;
 		}
 	}
