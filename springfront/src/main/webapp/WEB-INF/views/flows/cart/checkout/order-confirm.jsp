@@ -92,7 +92,8 @@
 		    				<address>
 		    					<strong>Payment Method:</strong><br>
 		    					Card Payment <br>
-		    					${orderDetail.user.email}
+		    					Send to: ${orderDetail.user.email}
+		    					Amount Paid: ${orderDetail.orderTotal}
 		    				</address>
 		    			</div>
 		    			<div class="col-lg-6 text-right">
@@ -139,6 +140,7 @@
 		    		</div>
 		    	</div>
 		    </div>
+		    <hr>
 		    <div class="text-center">
 		    	<a href="${contextRoot}/show/all/products" class="btn btn-lg btn-warning">Continue Shopping</a>
 		    </div>

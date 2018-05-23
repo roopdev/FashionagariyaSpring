@@ -73,6 +73,12 @@ public class OrderItem implements Serializable {
 		this.total = total;
 	}
 	
+	@Override
+	public String toString() {
+		return "OrderItem [id=" + id + ", product=" + product + ", orderDetail=" + orderDetail + ", buyingPrice="
+				+ buyingPrice + ", productCount=" + productCount + ", total=" + total + "]";
+	}
+	
 	
 
 }

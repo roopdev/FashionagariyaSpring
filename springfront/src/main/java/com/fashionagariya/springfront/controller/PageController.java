@@ -44,6 +44,7 @@ public class PageController {
 		// Passing the list of categories
 		mv.addObject("categories", categoryDAO.list());
 		mv.addObject("userClickHome", true);
+		mv.addObject("products",productDAO.getLatestActiveProducts(6));
 		
 		return mv;
 	}

@@ -14,10 +14,12 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ">
 				<li id="about" class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
+				<li id="about" class="nav-item"><a class="nav-link" href="${contextRoot}/blogs">Blogs</a></li>
 				<li id="contact" class="nav-item"><a class="nav-link" href="${contextRoot}/contact">Contact</a></li>
 				<li id="listProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/show/all/products">Products</a></li>
 				<security:authorize access="hasAuthority('ADMIN')">
 					<li id="manageProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a></li>	
+					<li id="manageProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/manage/blogs">Manage Blogs</a></li>	
 				</security:authorize>			
 			</ul>
 			
@@ -39,9 +41,10 @@
 			          	<span class="badge badge-info">${userModel.cart.cartLines}</span>
 			          	- &#8377; ${userModel.cart.grandTotal}
 			          </a>
-			          <a class="dropdown-item" href="javascript:void(0)">My orders</a>
+			          <a class="dropdown-item" href="${contextRoot}/user/${userModel.id}/orders">My orders</a>
 			         </security:authorize>
 			          <a class="dropdown-item" href="javascript:void(0)">Profile</a>
+			          <a class="dropdown-item" href="javascript:void(0)">Settings</a>
 			          <div class="dropdown-divider"></div>
 			          <a class="dropdown-item" href="${contextRoot}/perform-logout">Logout</a>
 			        </div>

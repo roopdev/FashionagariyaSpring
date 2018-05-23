@@ -7,13 +7,12 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.fashionagariya.springback.dao.ProductDAO;
-import com.fashionagariya.springback.dto.Product;
 
 public class ProductTestCase {
 	
 	private static AnnotationConfigApplicationContext context;
 	private static ProductDAO productDAO;
-	private Product product;
+	/*private Product product;*/
 	
 	@BeforeClass
 	public static void init() {

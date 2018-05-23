@@ -47,7 +47,6 @@
 </head>
 
 <body>
-<!-- 	<div class="se-pre-con"></div> -->
 	<div class="wrapper">
 
 		<!-- Navigation -->
@@ -88,6 +87,11 @@
 			<!-- Loading User Cart Content -->
 			<c:if test="${userClickShowCart == true }">
 				<%@include file="cart.jsp"%>
+			</c:if>
+			
+			<!-- Loading User Orders Content -->
+			<c:if test="${UserClickShowOrders == true }">
+				<%@include file="orders.jsp"%>
 			</c:if>
 		</div>
 

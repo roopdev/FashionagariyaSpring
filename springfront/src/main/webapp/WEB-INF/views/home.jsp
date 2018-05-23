@@ -1,17 +1,8 @@
 
-<div class="container">
-
+<div class="container-fluid">
+	<!-- carousel -->
 	<div class="row">
-
-		<div class="col-lg-3">
-			<%@include file="./shared/sidebar.jsp" %>
-			
-
-		</div>
-		<!-- /.col-lg-3 -->
-
-		<div class="col-lg-9">
-
+		<div class="col">
 			<div id="carouselExampleIndicators" class="carousel slide my-4"
 				data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -22,15 +13,15 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
+						<img class="d-block img-fluid" src="http://placehold.it/1360x350"
 							alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
+						<img class="d-block img-fluid" src="http://placehold.it/1360x350"
 							alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="http://placehold.it/900x350"
+						<img class="d-block img-fluid" src="http://placehold.it/1360x350"
 							alt="Third slide">
 					</div>
 				</div>
@@ -44,133 +35,37 @@
 					class="sr-only">Next</span>
 				</a>
 			</div>
-
-			<div class="row">
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item One</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Two</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit
-								amet.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Three</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Four</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Five</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit
-								amet.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
-					<div class="card h-100">
-						<a href="#"><img class="card-img-top"
-							src="http://placehold.it/700x400" alt=""></a>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="#">Item Six</a>
-							</h4>
-							<h5>$24.99</h5>
-							<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-								adipisicing elit. Amet numquam aspernatur!</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
-								&#9734;</small>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.row -->
-
 		</div>
-		<!-- /.col-lg-9 -->
-
 	</div>
-	<!-- /.row -->
+	<!-- /.carousel -->
+		<h2>Latest Products-</h2>
+	<!-- Products -->
+	<div class="row">
+		<c:forEach items="${products}" var="product">
+				<div class="col-lg-3 mb-4">
+					<div class="card h-100">
+						<a href="${contextRoot}/show/${product.id}/product"><img class="card-img-top"
+							src="${images}/${product.code}.jpg" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+								<a href="${contextRoot}/show/${product.id}/product">${product.name}</a>
+							</h4>
+							<h5>&#8377; ${product.unitPrice}</h5>
+							<p class="card-text">${product.description}</p>
+						</div>
+						<div class="card-footer">
+							<a href="" class="btn btn-outline-danger"> 
+								<i class="fa fa-heart" aria-hidden="true"></i>
+							</a>
+							<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-outline-success pull-right"> 
+								<i class="fa fa-cart-plus" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+		</c:forEach>
+	</div>
+	<!-- /.Products -->
 
 </div>
 <!-- /.container -->

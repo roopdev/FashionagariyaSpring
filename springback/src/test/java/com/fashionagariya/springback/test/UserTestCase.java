@@ -8,7 +8,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.fashionagariya.springback.dao.UserDAO;
 import com.fashionagariya.springback.dto.Address;
-import com.fashionagariya.springback.dto.Cart;
 import com.fashionagariya.springback.dto.User;
 
 public class UserTestCase {
@@ -16,7 +15,7 @@ public class UserTestCase {
 	private static AnnotationConfigApplicationContext context;
 	private static UserDAO userDAO;
 	private User user = null;
-	private Cart cart = null;
+	/*private Cart cart = null;*/
 	private Address address = null;
 	
 	@BeforeClass

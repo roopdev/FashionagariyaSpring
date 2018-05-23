@@ -94,6 +94,11 @@ public class OrderDetail implements Serializable {
 		this.orderDate = orderDate;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "OrderDetail [id=" + id + ", user=" + user + ", orderTotal=" + orderTotal + ", shipping=" + shipping
+				+ ", billing=" + billing + ", orderItems=" + orderItems + ", orderCount=" + orderCount + ", orderDate="
+				+ orderDate + "]";
+	}
 
 }

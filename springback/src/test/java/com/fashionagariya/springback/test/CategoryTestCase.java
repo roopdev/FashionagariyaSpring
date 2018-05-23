@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.fashionagariya.springback.dao.CategoryDAO;
-import com.fashionagariya.springback.dto.Category;
 
 public class CategoryTestCase {
 	
@@ -15,7 +14,7 @@ public class CategoryTestCase {
 	
 	private static CategoryDAO categoryDAO;
 	
-	private Category category;
+	/*private Category category;*/
 	
 	@BeforeClass
 	public static void init() {
